@@ -1,0 +1,22 @@
+  398  yum update
+  399  yum install yum-utils device-mapper-persistent-data lvm2
+  400  yum-config-manager --add-repo
+  401  yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+  402  yum install docker-ce
+  403  systemctl start docker
+  404  systemctl enable docker
+  405  systemctl status docker
+  406  docker -v
+  407  curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.8.7/bin/linux/amd64/kubectl
+  408  chmod +x ./kubectl
+  409  mv ./kubectl /usr/local/bin/kubectl
+  410  kubectl version
+  411  curl -Lo minikube
+  412  history
+  413  curl -Lo minikube https://storage.googleapis.com/minikube/releases/v0.23.0/minikube-linux-amd64 && chmod +x minikube && mv minikube /usr/local/bin/
+  414  minikube start --vm-driver=none
+  415  kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.4 --port=8080
+  416  kubectl expose deployment hello-minikube --type=NodePort
+  417  kubectl get pod
+  418  curl $(minikube service hello-minikube --url)
+  419  history
